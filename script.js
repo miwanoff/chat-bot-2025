@@ -28,7 +28,12 @@ $(document).ready(function () {
 
   $("#ok").click(function () {
     let q = $("#question").val().trim();
-    console.log(q);
+    $("#question").val("");
+    if (q != "") {
+      console.log(q);
+      $("#answers").append(`<div id="human_anw">${q}</div>`);
+    }
+
     return false;
   });
 });
