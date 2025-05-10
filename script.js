@@ -15,4 +15,20 @@ $(document).ready(function () {
   $("#chatbot").click(function () {
     $(this).toggleClass("show");
   });
+
+  $("#answers").append(`<div id="bot_anw">${hello}</div>`);
+
+  $("#question").click(function () {
+    return false;
+  });
+
+  $("#answers").click(function () {
+    return false;
+  });
+
+  $("#ok").click(function () {
+    let q = $("#question").val().trim();
+    console.log(q);
+    return false;
+  });
 });
