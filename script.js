@@ -1,13 +1,17 @@
 const phrases = [
-  "Наш менеджер перезвонит Вам в ближайшее время!",
-  "Уточнить детали можно по телефону 123456789",
-  "Оставайтесь на связи!",
-  "Сегодня прекрасная погода!",
-  "С Вами очень приятно общаться!",
+  "Наш менеджер передзвонить Вам найближчим часом!",
+  "Уточнити деталі можна за телефоном 123456789",
+  "Залишайтеся на зв'язку!",
+  "Сьогодні чудова погода!",
+  "З Вами дуже приємно спілкуватися!",
+  "Все про Volvo",
+  "Все про BMW",
+  "Все про Fiat",
 ];
 
 const hello = "Hello!";
 const goodbye = "Good Bye!";
+const dots = "...";
 
 $(document).ready(function () {
   $("h1").css("color", "blue");
@@ -32,6 +36,14 @@ $(document).ready(function () {
     if (q != "") {
       console.log(q);
       $("#answers").append(`<div id="human_anw">${q}</div>`);
+      if (q.toLowerCase().includes("bye")) {
+        $("#answers").append(`<div id="bot_anw">${goodbye}</div>`);
+      } else if (q.toLowerCase().includes("volvo")) {
+        $("#answers").append(`<div id="bot_anw">${phrases[5]}</div>`);
+      }
+      else {
+        $("#answers").append(`<div id="bot_anw">${dots}</div>`);
+      }
     }
 
     return false;
