@@ -36,16 +36,25 @@ $(document).ready(function () {
     if (q != "") {
       console.log(q);
       $("#answers").append(`<div id="human_anw">${q}</div>`);
-      if (q.toLowerCase().includes("bye")) {
-        $("#answers").append(`<div id="bot_anw">${goodbye}</div>`);
-      } else if (q.toLowerCase().includes("volvo")) {
-        $("#answers").append(`<div id="bot_anw">${phrases[5]}</div>`);
-      }
-      else {
-        $("#answers").append(`<div id="bot_anw">${dots}</div>`);
-      }
+
+      setTimeout(function () {
+        if (q.toLowerCase().includes("bye")) {
+          $("#answers").append(`<div id="bot_anw">${goodbye}</div>`);
+        } else if (q.toLowerCase().includes("volvo")) {
+          $("#answers").append(`<div id="bot_anw">${phrases[5]}</div>`);
+        } else {
+          $("#answers").append(`<div id="bot_anw">${dots}</div>`);
+        }
+      }, 1000);
     }
 
     return false;
   });
+});
+
+$('#question').keypress("keyup", function (event) {
+  if (event.keyCode == 13){
+    $("#ok").click();
+    return false;
+  }
 });
